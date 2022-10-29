@@ -78,12 +78,6 @@ body {
   background-color: #ffffff;
 }
 
-.delivery-centerer-container {
-  width: 1160px;
-  margin: 0 auto;
-  display: flex;
-}
-
 /* Лого */
 .navigation-logo {
   position: absolute;
@@ -109,7 +103,7 @@ body {
   background-color: #ffe17f;
 }
 
-/* Пользовальская верхняя часть страницы */
+/* Верхняя часть страницы пользователя */
 .user-container {
   display: flex;
   align-items: flex-start;
@@ -156,7 +150,7 @@ body {
 }
 
 /* Контейнер поиска */
-.serach-container {
+.search-container {
   display: flex;
 }
 
@@ -227,9 +221,7 @@ body {
 
 /* Контейнер кнопок пользователя */
 .user-buttons-container {
-  margin: 0;
-  margin-top: -4px;
-  margin-left: 26px;
+  margin: -4px 0 0 26px;
   flex-grow: 1;
   display: grid;
   grid-template-columns: auto 1fr 104px 113px;
@@ -246,8 +238,7 @@ body {
   font-size: 18px;
   line-height: 30px;
   background-color: transparent;
-  padding: 0;
-  padding-top: 9px;
+  padding: 9px 0 0;
   border: none;
   display: flex;
   justify-content: flex-end;
@@ -774,8 +765,7 @@ body {
 }
 
 .description-title {
-  margin: 0;
-  margin-top: 106px;
+  margin: 106px 0 0;
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   font-size: 50px;
@@ -783,8 +773,7 @@ body {
 }
 
 .description-text {
-  margin: 0;
-  margin-top: 29px;
+  margin: 29px 0 0;
 }
 
 .button-and-points {
@@ -880,8 +869,7 @@ body {
 
 /* Характерстики товара в слайдере */
 .characteristics {
-  margin: 0;
-  margin-top: 48px;
+  margin: 48px 0 0;
   display: flex;
   flex-wrap: wrap;
   gap: 21px;
@@ -976,8 +964,7 @@ body {
 }
 
 .category-link-title {
-  margin: 0;
-  margin-top: 33px;
+  margin: 33px 0 0;
 }
 
 /* Преимущества заказа */
@@ -997,7 +984,29 @@ body {
   top: 0;
 }
 
-/* Декоративная полоска */
+.delivery-slider-container {
+  width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+}
+
+.delivery-input {
+  display: none;
+}
+
+.advantages-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 288px;
+  flex-shrink: 0;
+  align-items: start;
+}
+
+/* Декоративная черная полоска правее списка кнопок*/
 .advantages-list::after {
   content: "";
   position: absolute;
@@ -1008,36 +1017,141 @@ body {
   background-color: #000000;
 }
 
-.advantages-list {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  position: relative;
+.slider-inner {
+  overflow: hidden;
 }
 
-.advantages-item {
-  margin-top: 34px;
+.advantages-description-container {
+  list-style-type: none;
+  padding: 0;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.8s ease;
+}
+
+.advantages-description-container li {
+  float: left;
+  width: 756px;
+  margin-left: 116px;
+  min-height: 238px;
+}
+
+/*Переключатели слайдера*/
+
+.delivery-input:nth-of-type(1):checked ~ .slider-inner .advantages-description-container {
+  transform: translate(0);
+}
+
+.delivery-input:nth-of-type(2):checked ~ .slider-inner .advantages-description-container {
+  transform: translate(-872px);
+}
+
+.delivery-input:nth-of-type(3):checked ~ .slider-inner .advantages-description-container {
+  transform: translate(-1744px);
+}
+
+/*Стилизация кнопок в преимуществах*/
+.advantages-button {
+  display: block;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  height: 40px;
+  min-width: 160px;
+  margin-top: 36px;
+  padding: 10px 5px 0 9px;
+  box-sizing: border-box;
   list-style-type: none;
   position: relative;
+  cursor: pointer;
+  z-index: 0;
 }
 
-.advantages-item .button-with-strip:not(.selected-advantages-button) {
-  max-width: 160px;
+.advantages-button::before {
+  position: absolute;
+  content: "";
+  top: 15px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #ffe17f;
+  z-index: -1;
 }
 
-.advantages-item:first-of-type {
+.advantages-button:first-of-type {
   margin-top: 64px;
 }
 
-.advantages-item:last-of-type {
+.advantages-button:last-of-type {
   margin-bottom: 75px;
 }
 
-/* Исправляю возможную ошибку дизайнера */
-.advantages-item:nth-child(3) .selected-advantages-button {
-  padding: 10px 34px;
+/*Выбранная кнопка*/
+.delivery-input:nth-of-type(1):checked ~ .advantages-list .advantages-button:nth-of-type(1) {
+  color: #ffe17f;
+  background-color: #000000;
+  width: 280px;
+  text-align: start;
+  padding-left: 18px;
 }
+
+.delivery-input:nth-of-type(2):checked ~ .advantages-list .advantages-button:nth-of-type(2) {
+  color: #ffe17f;
+  background-color: #000000;
+  width: 280px;
+  text-align: start;
+  padding-left: 18px;
+}
+
+.delivery-input:nth-of-type(3):checked ~ .advantages-list .advantages-button:nth-of-type(3) {
+  color: #ffe17f;
+  background-color: #000000;
+  width: 280px;
+  text-align: start;
+  padding-left: 18px;
+}
+
+.delivery-input:nth-of-type(1):checked ~ .advantages-list .advantages-button:nth-of-type(1)::before {
+  display: none;
+}
+
+.delivery-input:nth-of-type(2):checked ~ .advantages-list .advantages-button:nth-of-type(2)::before {
+  display: none;
+}
+
+.delivery-input:nth-of-type(3):checked ~ .advantages-list .advantages-button:nth-of-type(3)::before {
+  display: none;
+}
+
+/*.selected-advantages-button {*/
+/*  width: 280px;*/
+/*  padding: 10px 18px;*/
+/*  text-align: start;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.selected-advantages-button.button-with-strip::before {*/
+/*  display: none;*/
+/*}*/
+
+/*.selected-advantages-button.selected-advantages-button:hover {*/
+/*  color: rgba(255, 225, 127, 0.5);*/
+/*  background-color: #000000;*/
+/*}*/
+
+/*.selected-advantages-button:active.button-with-strip {*/
+/*  color: rgba(255, 225, 127, 0.3);*/
+/*}*/
+
+/*.selected-advantages-button:focus-visible.button-with-strip {*/
+/*  outline: 2px solid #af4fff;*/
+/*  outline-offset: 2px;*/
+/*  z-index: 1;*/
+/*}*/
 
 .advantages-title {
   font-family: "Raleway", sans-serif;
@@ -1045,98 +1159,32 @@ body {
   font-size: 50px;
   line-height: 50px;
   margin: 0;
-  padding-top: 73px;
+  padding-top: 55px;
   max-width: 450px;
 }
 
 .advantages-description {
-  margin: 0;
-  margin-top: 33px;
+  margin: 35px 0 0;
   max-width: 480px;
-}
-
-.advantages-item button {
-  min-width: 160px;
-}
-
-.selected-advantages-button {
-  font-family: "Raleway", sans-serif;
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 21px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #ffe17f;
-  border: none;
-  background-color: #000000;
-  width: 280px;
-  padding: 10px 18px;
-  text-align: start;
-  cursor: pointer;
-}
-
-.selected-advantages-button.button-with-strip::before {
-  display: none;
-}
-
-.selected-advantages-button.selected-advantages-button:hover {
-  color: rgba(255, 225, 127, 0.5);
-  background-color: #000000;
-}
-
-.selected-advantages-button:active.button-with-strip {
-  color: rgba(255, 225, 127, 0.3);
-}
-
-.selected-advantages-button:focus-visible.button-with-strip {
-  outline: 2px solid #af4fff;
-  outline-offset: 2px;
-  z-index: 1;
-}
-
-/* Возможно недочет дизайнера, испраляю проблему */
-
-/* .button-with-strip.selected-advantages-button {
-  padding: 10px 35px;
-} */
-
-.advantages-description-container {
-  list-style-type: none;
-  margin: 0;
-  margin-left: 123px;
-  padding: 0;
-  flex-grow: 1;
-  z-index: 1;
-}
-
-.advantages-description-container li {
-  min-height: 260px;
 }
 
 /* Блоки контейнера преимуществ */
 .delivery-block {
   background-image: url("../images/advantages/deliveryman.svg");
   background-repeat: no-repeat;
-  background-position: 90% 77px;
-  display: none;
+  background-position: 90% 59px;
 }
 
 .guarantee-block {
   background-image: url("../images/advantages/guarantee.svg");
   background-repeat: no-repeat;
-  background-position: 558px 62px;
-  display: none;
+  background-position: 557px 44px;
 }
 
 .credit-block {
   background-image: url("../images/advantages/credit.svg");
   background-repeat: no-repeat;
-  background-position: 573px 65px;
-  display: none;
-}
-
-.selected-block {
-  display: block;
+  background-position: 573px 47px;
 }
 
 /* Блок заказа доставки */
@@ -1211,8 +1259,7 @@ body {
 /* Блок с информацией о нас и контактами */
 .contacts-container {
   list-style-type: none;
-  margin: 0;
-  margin-top: 67px;
+  margin: 67px 0 0;
   padding: 0;
   display: flex;
   gap: 113px;
@@ -1238,14 +1285,11 @@ body {
   font-weight: 800;
   font-size: 50px;
   line-height: 50px;
-  margin: 0;
-  margin-top: 47px;
-  margin-bottom: 48px;
+  margin: 47px 0 48px;
 }
 
 .contact-text {
-  margin: 0;
-  margin-bottom: 30px;
+  margin: 0 0 30px;
 }
 
 .delivery-companies {
@@ -1291,8 +1335,7 @@ body {
 .contacts-address-text {
   font-style: normal;
   color: #444444;
-  margin: 0;
-  margin-top: 15px;
+  margin: 15px 0 0;
 }
 
 .contact-number {
@@ -1324,7 +1367,7 @@ body {
   color: #444444;
 }
 
-/* разный отсуп вынудил меня сделать это */
+/* разный отступ вынудил меня сделать это */
 .contact-button-strange {
   color: #000000;
   text-decoration: none;
@@ -1339,8 +1382,7 @@ body {
 }
 
 .subscribe-block {
-  margin: 0 auto;
-  margin-top: 74px;
+  margin: 74px auto 0;
   width: 1160px;
   padding-top: 64px;
   padding-bottom: 56px;
@@ -1359,8 +1401,7 @@ body {
   font-weight: 800;
   font-size: 50px;
   line-height: 50px;
-  margin: 0;
-  margin-left: 8px;
+  margin: 0 0 0 8px;
   grid-area: title;
 }
 
@@ -1368,9 +1409,7 @@ body {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
-  margin: 0;
-  margin-top: 10px;
-  margin-right: 25px;
+  margin: 10px 25px 0 0;
   max-width: 528px;
   grid-area: text;
   justify-self: end;
@@ -1468,8 +1507,7 @@ body {
   padding-left: 32px;
   grid-area: free;
   align-self: start;
-  margin: 0;
-  margin-top: 13px;
+  margin: 13px 0 0;
 }
 
 /* Футер */
@@ -1537,8 +1575,7 @@ body {
 }
 
 .footer-list {
-  margin: 0;
-  margin-bottom: 57px;
+  margin: 0 0 57px;
   padding: 0;
   list-style-type: none;
   display: flex;
@@ -1739,8 +1776,7 @@ body {
   font-weight: 800;
   font-size: 50px;
   line-height: 50px;
-  margin: 0;
-  margin-bottom: 35px;
+  margin: 0 0 35px;
 }
 
 /* Сетка содержимого модального окна */
@@ -1795,8 +1831,7 @@ body {
 .input-support {
   grid-column: 1/2;
   grid-row: 3/4;
-  margin: 0;
-  margin-bottom: 42px;
+  margin: 0 0 42px;
   font-size: 14px;
   line-height: 20px;
 }
@@ -1821,8 +1856,7 @@ body {
 .e-mail-error {
   grid-column: 2/-1;
   grid-row: 3/4;
-  margin: 0;
-  margin-bottom: 11px;
+  margin: 0 0 11px;
   font-size: 14px;
   line-height: 20px;
   color: #000000;
@@ -2094,9 +2128,7 @@ body {
   font-weight: 800;
   font-size: 50px;
   line-height: 50px;
-  margin: 0;
-  margin-top: 35px;
-  margin-left: 60px;
+  margin: 35px 0 0 60px;
 }
 
 /* Центровка внутреннего хедера */
@@ -2107,10 +2139,7 @@ body {
 
 /* Хлебные крошки */
 .breadcrumbs {
-  margin: 0;
-  margin-top: 10px;
-  margin-left: 58px;
-  margin-bottom: 30px;
+  margin: 10px 0 30px 58px;
   padding: 0;
   display: flex;
   list-style-type: none;
@@ -2185,8 +2214,7 @@ body {
 
 /* Фильтр каталога */
 .catalog-filter {
-  padding: 60px;
-  padding-top: 25px;
+  padding: 25px 60px 60px;
   box-sizing: border-box;
   grid-column: 1 / 2;
   grid-row: 1 / 3;
@@ -2309,8 +2337,7 @@ input[type=number] {
 }
 
 .cost {
-  margin: 0;
-  margin-top: 72px;
+  margin: 72px 0 0;
   padding: 0;
   width: 200px;
   border: none;
@@ -2321,15 +2348,13 @@ input[type=number] {
 /* Контейнер чекбоксов выбора цвета */
 .color-checkbox {
   border: none;
-  margin: 0;
-  margin-top: 42px;
+  margin: 42px 0 0;
   padding: 0;
 }
 
 .color-checkbox-container {
   list-style-type: none;
-  margin: 0;
-  margin-top: 20px;
+  margin: 20px 0 0;
   padding: 0;
 }
 
@@ -2396,16 +2421,14 @@ input[type=number] {
 
 /* Контейнер наличия Bluetooth */
 .bluetooth-radio {
-  margin: 0;
   padding: 0;
-  margin-top: 29px;
+  margin: 29px 0 0;
   border: none;
 }
 
 .bluetooth-list {
   list-style-type: none;
-  margin: 0;
-  margin-top: 21px;
+  margin: 21px 0 0;
   padding: 0;
 }
 
@@ -2599,8 +2622,7 @@ input[type=number] {
 }
 
 .product-title {
-  margin: 0;
-  margin-top: 33px;
+  margin: 33px 0 0;
   line-height: 20px;
   letter-spacing: -0.02em;
   color: #000000;

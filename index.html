@@ -21,7 +21,7 @@
 
         <!-- Поиск -->
         <div class="user-container">
-          <div class="serach-container">
+          <div class="search-container">
             <form class="search-form" action="https://echo.htmlacademy.ru/" method="post">
               <label class="visually-hidden" for="search-field">Поиск</label>
               <input class="search-field" placeholder="Поиск по сайту" value="Текст поиска" type="text"
@@ -51,7 +51,7 @@
                     <li class="cart-item">
                       <a class="cart-link" href="">
                         <img class="cart-image" src="images/header/cart-items-images/amateur-selfie-stick.jpg"
-                          width="39" height="43" alt="Любительская селфи-палка.">
+                          width="39" height="44" alt="Любительская селфи-палка.">
                         <p class="cart-item-name">Любительская селфи-палка</p>
                       </a>
                       <button class="delete-cart-item" type="button">
@@ -67,7 +67,7 @@
                     <li class="cart-item">
                       <a class="cart-link" href="">
                         <img class="cart-image" src="images/header/cart-items-images/professional-selfie-stick.jpg"
-                          width="39" height="43" alt="Любительская селфи-палка.">
+                          width="39" height="44" alt="Любительская селфи-палка.">
                         <p class="cart-item-name">Профессиональная селфи-палка</p>
                       </a>
                       <button class="delete-cart-item" type="button">
@@ -364,38 +364,38 @@
       <!-- Преимущества заказа -->
       <section class="delivery-advantages">
         <div class="container-white-wrapper"></div>
-        <div class="delivery-centerer-container">
+        <div class="delivery-slider-container">
           <h2 class="visually-hidden">Преимущества заказа у нас</h2>
-          <ul class="advantages-list">
-            <li class="advantages-item">
-              <button class="button-with-strip selected-advantages-button" type="button">Доставка</button>
-            </li>
-            <li class="advantages-item">
-              <button class="button-with-strip" type="button">Гарантия</button>
-            </li>
-            <li class="advantages-item">
-              <button class="button-with-strip" type="button">Кредит</button>
-            </li>
-          </ul>
-          <ul class="advantages-description-container">
-            <li class="delivery-block selected-block">
-              <p class="advantages-title">Доставка</p>
-              <p class="advantages-description">Мы&nbsp;с&nbsp;удовольствием доставим ваш товар прямо
-                к&nbsp;вашему подъезду совершенно бесплатно! Ведь
-                мы&nbsp;неплохо заработаем, поднимая его на&nbsp;ваш этаж.</p>
-            </li>
-            <li class="guarantee-block">
-              <p class="advantages-title">Гарантия</p>
-              <p class="advantages-description">Если из-за возгорания купленного у&nbsp;нас товара у&nbsp;вас
-                сгорит дом&nbsp;&mdash; не&nbsp;переживайте, мы&nbsp;выдадим вам новый.
-                Товар, не&nbsp;дом, конечно&nbsp;же.</p>
-            </li>
-            <li class="credit-block">
-              <p class="advantages-title">Кредит</p>
-              <p class="advantages-description">Залезть в&nbsp;долговую яму стало проще! Кредитные консультанты подберут
-                для вас наиболее выгодные условия кредита. Выгодные для банка, разумеется.</p>
-            </li>
-          </ul>
+          <input class="delivery-input" type="radio" id="delivery-number-1" name="delivery-toggle" checked>
+          <input class="delivery-input" type="radio" id="delivery-number-2" name="delivery-toggle">
+          <input class="delivery-input" type="radio" id="delivery-number-3" name="delivery-toggle">
+          <div class="advantages-list">
+            <label class="advantages-button" for="delivery-number-1">Доставка</label>
+            <label class="advantages-button" for="delivery-number-2">Гарантия</label>
+            <label class="advantages-button" for="delivery-number-3">Кредит</label>
+          </div>
+          <div class="slider-inner">
+            <ul class="advantages-description-container">
+              <li class="delivery-block">
+                <p class="advantages-title">Доставка</p>
+                <p class="advantages-description">Мы&nbsp;с&nbsp;удовольствием доставим ваш товар прямо
+                  к&nbsp;вашему подъезду совершенно бесплатно! Ведь
+                  мы&nbsp;неплохо заработаем, поднимая его на&nbsp;ваш этаж.</p>
+              </li>
+              <li class="guarantee-block">
+                <p class="advantages-title">Гарантия</p>
+                <p class="advantages-description">Если из-за возгорания купленного у&nbsp;нас товара у&nbsp;вас
+                  сгорит дом&nbsp;&mdash; не&nbsp;переживайте, мы&nbsp;выдадим вам новый.
+                  Товар, не&nbsp;дом, конечно&nbsp;же.</p>
+              </li>
+              <li class="credit-block">
+                <p class="advantages-title">Кредит</p>
+                <p class="advantages-description">Залезть в&nbsp;долговую яму стало проще! Кредитные консультанты подберут
+                  для вас наиболее выгодные условия кредита. Выгодные для банка, разумеется.</p>
+              </li>
+            </ul>
+          </div>
+
         </div>
       </section>
       <!-- Центровка страницы main-->
