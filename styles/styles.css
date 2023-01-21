@@ -1127,32 +1127,6 @@ body {
   display: none;
 }
 
-/*.selected-advantages-button {*/
-/*  width: 280px;*/
-/*  padding: 10px 18px;*/
-/*  text-align: start;*/
-/*  cursor: pointer;*/
-/*}*/
-
-/*.selected-advantages-button.button-with-strip::before {*/
-/*  display: none;*/
-/*}*/
-
-/*.selected-advantages-button.selected-advantages-button:hover {*/
-/*  color: rgba(255, 225, 127, 0.5);*/
-/*  background-color: #000000;*/
-/*}*/
-
-/*.selected-advantages-button:active.button-with-strip {*/
-/*  color: rgba(255, 225, 127, 0.3);*/
-/*}*/
-
-/*.selected-advantages-button:focus-visible.button-with-strip {*/
-/*  outline: 2px solid #af4fff;*/
-/*  outline-offset: 2px;*/
-/*  z-index: 1;*/
-/*}*/
-
 .advantages-title {
   font-family: "Raleway", sans-serif;
   font-weight: 800;
